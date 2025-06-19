@@ -69,7 +69,7 @@ _Data is synthetic and designed for demonstration purposes only._
 
 ## How to Run
 
-### 1 Clone the repo · 2 Install requirements · 3 Run the script
+### 1 - Clone the repo · 2 - Install requirements · 3 - Run the script
 
 ```bash
 ### 1 Clone the repo
