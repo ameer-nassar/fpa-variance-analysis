@@ -69,14 +69,18 @@ _Data is synthetic and designed for demonstration purposes only._
 
 ## How to Run
 
+### 1 - Clone the repo
 ```bash
-# 1 · Clone the repo
 git clone https://github.com/ameer-nassar/fpa-variance-analysis.git
 cd fpa-variance-analysis
+```
 
-# 2 · Install requirements
+### 2 - Install requirements
+```bash
 pip install -r minimum_requirements.txt
+```
 
-# 3 · Run the script
+### 3 - Run the script
+```bash
 python variance_analysis.py
 ```
