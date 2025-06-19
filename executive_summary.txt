@@ -1,0 +1,13 @@
+========== FP&A Executive Summary ==========
+Total Budget : $28,221,717
+Total Actual : $28,171,672
+Total Variance: -50,045 USD (-0.18%)
+
+Customer Success  is   2.3% under budget (-51,740 USD)
+Finance           is   0.8% over budget (+25,962 USD)
+HR                is   0.6% over budget (+29,269 USD)
+IT                is   2.7% over budget (+51,316 USD)
+Marketing         is   2.1% over budget (+88,118 USD)
+Operations        is   0.3% over budget (+12,510 USD)
+R&D               is   2.9% under budget (-114,379 USD)
+Sales             is   2.6% under budget (-91,101 USD)
