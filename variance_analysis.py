@@ -7,12 +7,12 @@ import seaborn as sns
 import matplotlib.ticker as mtick
 from matplotlib.patches import Patch   # needed for heatmap legend
 
+# ---------- Load Data ----------
+df = pd.read_csv("fpa_variance_data_monthly.csv")
+
 # ---------- Helpers ----------
 def format_millions_2dp(val: float) -> str:
     return f"${val / 1e6:.2f}M"
-
-# ---------- Load Data ----------
-df = pd.read_csv("fpa_variance_data_monthly.csv")
 
 # =================================================
 # PLOT 1 • Total Budget vs Actual by Department
