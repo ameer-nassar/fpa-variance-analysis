@@ -17,7 +17,7 @@ Visualizing departmental budget performance using Python and real-world FP&A met
 
 | Plot # | File | Description |
 |--------|------|-------------|
-| **1** | `plot1_total_budget_actual.png` | Total Budget vs Actual by Department (bar) |
+| **1** | `plot1_total_actual_budget.png` | Total Actual vs Budget by Department (bar) |
 | **2** | `plot2_avg_variance_bar_chart.png` | Average Monthly Variance % by Department (bar) |
 | **3** | `plot3_faceted_lines.png` | Monthly Variance % by Department (facet grid – 1-12 months) |
 | **4** | `plot4_heatmap_variance_pct.png` | Heatmap of Monthly Variance % (Jan–Dec, +/- legend) |
@@ -30,7 +30,7 @@ Visualizing departmental budget performance using Python and real-world FP&A met
 
 | Plot 1 | Plot 2 |
 |--------|--------|
-| ![Plot 1](plot1_total_budget_actual.png) | ![Plot 2](plot2_avg_variance_bar_chart.png) |
+| ![Plot 1](plot1_total_actual_budget.png) | ![Plot 2](plot2_avg_variance_bar_chart.png) |
 
 | Plot 3 | Plot 4 |
 |--------|--------|
@@ -46,7 +46,7 @@ Visualizing departmental budget performance using Python and real-world FP&A met
 
 This script will generate 5 visualizations and a downloadable executive summary text file in your project folder.
 
-- `plot1_total_budget_actual.png`
+- `plot1_total_actual_budget.png`
 - `plot2_avg_variance_bar_chart.png`
 - `plot3_faceted_lines.png`
 - `plot4_heatmap_variance_pct_signed_legend_moved.png`
