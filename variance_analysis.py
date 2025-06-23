@@ -41,7 +41,7 @@ for bar in (*b1, *b2):
                  ha='center', fontsize=7.5, weight='bold')
 
 plt.tight_layout()
-plt.savefig("plot1_total_budget_actual.png", dpi=300)
+plt.savefig("plot1_total_actual_budget.png", dpi=300)
 plt.close()
 
 # =================================================
