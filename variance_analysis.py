@@ -14,18 +14,19 @@ df = pd.read_csv("fpa_variance_data_monthly.csv")
 def format_millions_2dp(val: float) -> str:
     return f"${val / 1e6:.2f}M"
 
-# =================================================
-# PLOT 1 • Total Actual vs Budget by Department
-# =================================================
+# ===========================================
+# PLOT 1 : Total Actual vs Budget by Department
+# ===========================================
+
 dept_summary = df.groupby("Department")[["Budget", "Actual"]].sum().reset_index()
 x = np.arange(len(dept_summary))
 bar_w = 0.35
 
 plt.figure(figsize=(12, 6))
-b1 = plt.bar(x + bar_w/2, dept_summary["Actual"], width=bar_w,
-             label="Actual", color="#FF6F1F")
-b2 = plt.bar(x - bar_w/2, dept_summary["Budget"], width=bar_w,
-             label="Budget", color="#FDB813")
+b1 = plt.bar(x - bar_w/2, dept_summary["Actual"], width=bar_w, 
+             label="Actual", color="#FF6F1F")  # Actual = left (orange)
+b2 = plt.bar(x + bar_w/2, dept_summary["Budget"], width=bar_w, 
+             label="Budget", color="#FDB813")  # Budget = right (yellow)
 
 ax = plt.gca()
 ax.yaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f'${int(x):,}'))
@@ -34,9 +35,11 @@ plt.ylabel("Total ($)")
 plt.title("Total Actual vs Budget by Department")
 plt.legend()
 
+# Annotate bars
 for bar in (*b1, *b2):
     h = bar.get_height()
-    plt.annotate(format_millions_2dp(h), (bar.get_x() + bar.get_width()/2, h),
+    plt.annotate(format_millions_2dp(h),
+                 (bar.get_x() + bar.get_width()/2, h),
                  xytext=(0, 7), textcoords="offset points",
                  ha='center', fontsize=7.5, weight='bold')
 
