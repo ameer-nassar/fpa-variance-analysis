@@ -56,7 +56,7 @@ bar_data = (df.groupby("Department")["Variance_pct"]
               .reset_index())
 
 plt.figure(figsize=(10, 6))
-sns.barplot(data=bar_data, x="Department", y="Variance_pct", palette="viridis")
+sns.barplot(data=bar_data, x="Department", y="Variance_pct", hue="Department", palette="viridis", legend=False)
 plt.axhline(0, color="gray", ls="--", lw=1)
 plt.ylim(-8, 8)
 plt.ylabel("Average Variance (%)")
@@ -104,6 +104,7 @@ ax = sns.heatmap(heat*100, annot=True, fmt="",
                  cmap="coolwarm", center=0,
                  annot_kws={"fontsize":9},
                  cbar_kws={'label': 'Variance (%)'})
+ax.set_xlabel("Month")
 
 for t in ax.texts:
     t.set_text(f"{float(t.get_text()):+0.1f}")
@@ -122,8 +123,9 @@ plt.close()
 # =================================================
 plt.figure(figsize=(12, 6))
 ax = sns.boxplot(data=df, x="Department", y="Variance_pct", color="#2a80b9")
-ax.yaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f"{x*100:+.0f}%"))
-plt.title("Distribution of Monthly Variance % by Department", pad=15)
+ax.yaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f"{x*100:+.0f}%")) # Format Y-axis as percentage with +/- sign
+plt.ylabel("Variance (%)", labelpad=10) # Set axis labels and title
+plt.title("Distribution of Monthly Variance % by Department", pad=15) # Set axis labels and title
 plt.tight_layout()
 plt.savefig("plot5_boxplot_variance_pct.png", dpi=300)
 plt.close()
