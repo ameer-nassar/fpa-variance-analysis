@@ -69,12 +69,10 @@ plt.close()
 # =================================================
 # PLOT 3 • Facet Grid (month-by-month lines)
 # =================================================
-num_map = dict(zip(
-    ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-    range(1,13)))
+df["Month"] = pd.to_datetime(df["Month"])  # Parse ISO format
 facet_df = df.assign(
     Variance_pct=df["Variance_pct"].mul(100),
-    Month_Num=df["Month"].map(num_map)
+    Month_Num=df["Month"].dt.month
 )
 
 g = sns.FacetGrid(facet_df, col="Department", col_wrap=4, height=3.2, sharey=True)
@@ -93,9 +91,13 @@ g.savefig("plot3_faceted_lines.png", dpi=300)
 # =================================================
 # PLOT 4 • Heatmap Jan-Dec  (+/-) with legend
 # =================================================
-ordered_months = list(num_map.keys())
-df["Month"] = pd.Categorical(df["Month"], categories=ordered_months, ordered=True)
-heat = df.pivot(index="Department", columns="Month", values="Variance_pct")
+df["Month_Label"] = df["Month"].dt.strftime("%b")
+df["Month_Label"] = pd.Categorical(df["Month_Label"],
+                                   categories=["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                               "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                                   ordered=True)
+
+heat = df.pivot(index="Department", columns="Month_Label", values="Variance_pct")
 
 plt.figure(figsize=(12, 6))
 ax = sns.heatmap(heat*100, annot=True, fmt="",
