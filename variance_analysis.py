@@ -24,9 +24,9 @@ bar_w = 0.35
 
 plt.figure(figsize=(12, 6))
 b1 = plt.bar(x - bar_w/2, dept_summary["Actual"], width=bar_w, 
-             label="Actual", color="#FF6F1F")  # Actual = left (orange)
+             label="Actual", color="#4682B4")  # Actual = left (steel blue)
 b2 = plt.bar(x + bar_w/2, dept_summary["Budget"], width=bar_w, 
-             label="Budget", color="#FDB813")  # Budget = right (yellow)
+             label="Budget", color="#FF8C00")  # Budget = right (dark orange)
 
 ax = plt.gca()
 ax.yaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f'${int(x):,}'))
