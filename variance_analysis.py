@@ -15,7 +15,7 @@ def format_millions_2dp(val: float) -> str:
     return f"${val / 1e6:.2f}M"
 
 # ===========================================
-# PLOT 1 : Total Actual vs Budget by Department
+# PLOT 1 : Total Budget vs Actuals by Department
 # ===========================================
 
 dept_summary = df.groupby("Department")[["Budget", "Actual"]].sum().reset_index()
@@ -23,16 +23,17 @@ x = np.arange(len(dept_summary))
 bar_w = 0.35
 
 plt.figure(figsize=(12, 6))
-b1 = plt.bar(x - bar_w/2, dept_summary["Actual"], width=bar_w, 
-             label="Actual", color="#4682B4")  # Actual = left (steel blue)
-b2 = plt.bar(x + bar_w/2, dept_summary["Budget"], width=bar_w, 
-             label="Budget", color="#FF8C00")  # Budget = right (dark orange)
+b1 = plt.bar(x - bar_w/2, dept_summary["Budget"], width=bar_w,
+             label="Budget", color="#FF8C00") # Budget = left (orange)
+
+b2 = plt.bar(x + bar_w/2, dept_summary["Actual"], width=bar_w,
+             label="Actual", color="#4682B4") # Actual = right (blue)
 
 ax = plt.gca()
 ax.yaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f'${int(x):,}'))
 plt.xticks(x, dept_summary["Department"], rotation=15, ha='right')
 plt.ylabel("Total ($)")
-plt.title("Total Actual vs Budget by Department")
+plt.title("Total Budget vs Actuals by Department")
 plt.legend()
 
 # Annotate bars
@@ -44,7 +45,7 @@ for bar in (*b1, *b2):
                  ha='center', fontsize=7.5, weight='bold')
 
 plt.tight_layout()
-plt.savefig("plot1_total_actual_budget.png", dpi=300)
+plt.savefig("plot1_total_actuals_vs_budget.png", dpi=300)
 plt.close()
 
 # =================================================
